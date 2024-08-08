@@ -142,7 +142,7 @@ export default {
         }, 
         productImg : {
           type :Array, 
-          default : [] 
+          default : () => [] 
         }, 
         price : {
           type : Number , 
