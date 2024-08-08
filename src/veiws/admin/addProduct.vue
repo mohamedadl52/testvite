@@ -152,7 +152,7 @@ export default {
         }
       
       const formData = new FormData();
-        this.fileimg.forEach((file, index) => {
+        this.fileimg.forEach((file) => {
         formData.append(`fileImg`, file);
       })
       
