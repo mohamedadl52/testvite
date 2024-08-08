@@ -1,7 +1,7 @@
 <template>
      <div class=" w-64 shadow-2xl relative">
   <img  v-if="typeof productImg === 'string'"   :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ productImg +'.png'" class="w-full h-56  " alt="">
-      <div else-if="Array.isArray(productImg)">
+      <div v-if="typeof productImg !== 'string'">
     <img  v-for="img in productImg" :key="img"  :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ img +'.png'" class="w-full h-56  " alt="">
  
       </div>
