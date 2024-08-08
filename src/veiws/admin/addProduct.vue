@@ -155,7 +155,7 @@ export default {
         this.fileimg.forEach((file, index) => {
         formData.append(`fileImg[${index}]`, file);
       });
-      formData.append("fileImg", this.fileimg);
+      
       formData.append("title", this.product.title);
       formData.append("price", this.product.price);
       formData.append("description", this.product.description);
