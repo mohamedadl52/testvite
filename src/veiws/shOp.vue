@@ -114,7 +114,7 @@
             </div>
               <div v-if="carditem" :class="card ? 'flex-row animationCard' : 'flex-col animationCard2'" class="flex gap-4 flex-row transition-all duration-500 items-center  mt-2 flex-wrap justify-center  ">
              
-                  <Card   :card="card" v-for="item in carditem" :productImg ='item.img_url' :idProduct="item._id"  :key="item.id" :title="item.title" :price="item.price" /> 
+                  <Card   :card="card" v-for="item in carditem" :productImg ='item.img_url[0]' :idProduct="item._id"  :key="item.id" :title="item.title" :price="item.price" /> 
              
               </div>
      </div>
