@@ -153,8 +153,8 @@ export default {
       
       const formData = new FormData();
         this.fileimg.forEach((file, index) => {
-        formData.append(`fileImg[${index}]`, file);
-      });
+        formData.append(`fileImg`, file);
+      })
       
       formData.append("title", this.product.title);
       formData.append("price", this.product.price);
