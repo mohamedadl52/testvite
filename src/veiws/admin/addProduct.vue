@@ -21,7 +21,7 @@
                          
                         <form
     class="mt-32 w-full"
-    multiple
+    
     enctype="multipart/form-data"
     @submit.prevent="addProdut"
   >
