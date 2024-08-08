@@ -154,7 +154,7 @@ export default {
       formData.append("description", this.product.description);
       formData.append("qyt", this.product.qyt);
       formData.append("catogres", this.$refs.catogres.value);
-      
+      console.log(formData)
       store.dispatch("product/add", formData)
         .then(() => {
           alert("تم اضافة منتج جديد");
