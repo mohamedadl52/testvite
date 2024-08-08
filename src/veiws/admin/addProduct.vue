@@ -32,6 +32,7 @@
           @change="uploadfile"
           type="file"
           name="fileImg"
+          multiple
           ref="fileimg"
         />
       </div>
