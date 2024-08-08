@@ -1,6 +1,6 @@
 <template>
      <div class=" w-64 shadow-2xl relative">
-    <img v-if="productImg" :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ productImg[0] +'.png'" class="w-full h-56  " alt="">
+    <img v-for="img in productImg" :key="img" v-if="productImg" :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ img +'.png'" class="w-full h-56  " alt="">
     <div class="w-full  bgwork2 flex justify-center  items-center h-48 absolute top-0 left-0 " >  
       <div class="absolute  iconspage top-1/2 left-1/3">
       <a href="#jbdv">
@@ -141,8 +141,8 @@ export default {
           default : ''
         }, 
         productImg : {
-          type :String , 
-          default : ''
+          type :Array, 
+          default : [] 
         }, 
         price : {
           type : Number , 
