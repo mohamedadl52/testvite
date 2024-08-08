@@ -21,6 +21,7 @@
                          
                         <form
     class="mt-32 w-full"
+    multiple
     enctype="multipart/form-data"
     @submit.prevent="addProdut"
   >
@@ -140,7 +141,7 @@ export default {
       });
     },
     uploadfile() {
-      console.log(this.$refs.catogres.value);
+      console.log(this.$refs.fileimg.files);
       this.fileimg = this.$refs.fileimg.files[0];
     },
     addProdut() {
