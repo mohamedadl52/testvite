@@ -116,7 +116,7 @@ export default {
   data: function () {
     return {
       product: new Product("", "" , "" , "" , ""),
-      fileimg: "",
+      fileimg: [] ,
       catogress: null,
       news : true ,
             cat : true ,
@@ -142,14 +142,19 @@ export default {
       });
     },
     uploadfile() {
-      console.log(this.$refs.fileimg.files);
-      this.fileimg = this.$refs.fileimg.files[0];
+        this.fileimg = Array.from(this.$refs.fileimg.files)
+   
     },
     addProdut() {
-      if (!this.fileimg) {
-        alert("يجب تحديد الصور");
-      }
+        if (this.fileimg.length === 0) {
+        alert("Select at least one image");
+        return;
+        }
+      
       const formData = new FormData();
+        this.fileimg.forEach((file, index) => {
+        formData.append(`fileImg[${index}]`, file);
+      });
       formData.append("fileImg", this.fileimg);
       formData.append("title", this.product.title);
       formData.append("price", this.product.price);
