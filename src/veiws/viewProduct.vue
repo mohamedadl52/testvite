@@ -1,8 +1,16 @@
 <template>
     <div>
     <div class="flex justify-center mt-10">
-      <div class=" w-64   relative">
-     <img v-if="productImg" :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ productImg +'.png'" class="w-full h-48" alt="">
+      <div class=" w-64 lg:w-1/2  relative">
+
+        <div>
+          <img   :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ selectImg +'.png'" class="w-full h-64 lg:h-1/2 bg-cover   " alt="">
+        </div>
+     <div   class="flex ">
+
+    <img @click="selectimage(img)" v-for="img in productImg" :key="img"  :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ img +'.png'" class="w-20  h-20 " alt="">
+
+     </div>
      <div class="w-full  bgwork2 flex justify-center  items-center h-48 absolute top-0 left-0 " >  
        <div class="absolute  iconspage top-1/2 left-1/3">
        <a href="#jbdv">
@@ -138,7 +146,7 @@
        الوصف
      </p>
 
-     <div class="text-xl text-center font-bold px-2 mt-4 lg:px-10  ">
+     <div class="text-xl text-center font-bold px-2 mt-4  mb-20 lg:px-10  ">
         {{ product.description }}
      </div>
 </div>
@@ -157,8 +165,9 @@ export default {
     return {
       product: new Product("", "" , "" , "" , ""),
       fileimg: "",
-      productImg : null , 
+      productImg : [] , 
       catogress: null,
+      selectImg : '',
       news : true ,
             cat : true ,
             modelV : true
@@ -183,8 +192,13 @@ export default {
         this.product.description = res.description
         this.product.qyt = res.qyt
         this.productImg = res.img_url
+        this.selectImg = res.img_url[0]
       })
     } ,
+    selectimage (img){
+
+this.selectImg =  img
+    }
  
  
   },
@@ -203,17 +217,19 @@ transition: all 0.5s;
 .iconspage {
  display: none;
 }
-.bgwork:hover {
+/* .bgwork:hover {
  background: rgba(0, 0, 0, 0.8);
  cursor :pointer
 }
 .bgwork2:hover {
  background: rgba(0, 0, 0, 0.8);
  cursor :pointer
-}
-.bgwork2:hover  .iconspage{
+} */
+/* .bgwork2:hover  .iconspage{
  display: block;
+} */
+.img:first-child {
+  width: 100%;
 }
-
 
 </style>

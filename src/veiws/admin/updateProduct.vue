@@ -26,19 +26,26 @@
   >
     <div class="container shadow-2xl pb-20 m-auto w-11/12">
       <div class="w-full lg:w-1/3 lg:mx-auto">
-        <img  v-if="productImg" :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ productImg +'.png'" alt="htest">
+        <!-- <img  v-if="productImg" :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ productImg +'.png'" alt="htest"> -->
+        <div   class="flex ">
+
+<img  v-for="img in productImg" :key="img"  :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ img +'.png'" class="w-20  h-20 " alt="">
+
+ </div>
         <input
           class="w-full my-2  shadow-2xl"
           @change="uploadfile"
           type="file"
           name="fileImg"
+          multiple
           ref="fileimg"
         />
       </div>
       <div class="w-full  lg:w-1/3 mx-auto">
-        <div>
-          {{ fileimg.name }}
-        </div>
+        <div class="flex justify-between" v-for="(file, index) in fileimg" :key="file.name">
+      <p class="text-white">{{ file.name }}</p>
+      <p class="text-red-500" @click="removeFile(index)">X</p>
+    </div>
         <div>
             <input
           class="w-full p-2 shadow-2xl my-2"
@@ -115,8 +122,8 @@ export default {
   data: function () {
     return {
       product: new Product("", "" , "" , "" , ""),
-      fileimg: "",
-      productImg : null , 
+      fileimg: [],
+      productImg : [] , 
       catogress: null,
       news : true ,
             cat : true ,
@@ -136,8 +143,12 @@ export default {
     this.getproductId()
   },
   methods: {
+    removeFile: function(index) {
+    this.fileimg.splice(index, 1);
+  } , 
     getproductId(){
       store.dispatch('product/getProduct' , this.$route.params.id).then((res)=>{
+        console.log(res)
         this.product.title = res.title
         this.product.price = res.price
         this.product.description = res.description
@@ -145,23 +156,28 @@ export default {
         this.product.title = res.title
         this.productImg = res.img_url
       })
+      
     } ,
     getCatogress: function () {
       this.$store.dispatch('catogress/get').then((res) => {
         console.log(res);
         this.catogress = res.Catogress;
+        
       });
     },
     uploadfile() {
       console.log(this.$refs.catogres.value);
-      this.fileimg = this.$refs.fileimg.files[0];
+      this.fileimg =  Array.from(this.$refs.fileimg.files)
+      console.log(this.fileimg)
     },
     updateProdut() {
       if (!this.fileimg) {
         alert("يجب تحديد الصور");
       }
-      const formData = new FormData();
-      formData.append("fileImg", this.fileimg);
+      const formData = new FormData()
+      this.fileimg.forEach((file) => {
+        formData.append(`fileImg`, file);
+      })
       formData.append("title", this.product.title);
       formData.append("price", this.product.price);
       formData.append("description", this.product.description);
@@ -169,14 +185,16 @@ export default {
       formData.append("catogres", this.$refs.catogres.value);
       
       store.dispatch("product/updateProduct", {id:this.$route.params.id , formData })
-        .then(() => {
-          this.getproductId()
-          alert("تم تعديل بنجاح");
+      .then(() => {
+        this.getproductId()
+        alert("تم تعديل بنجاح");
+        this.fileimg = []
         })
         .catch((err) => {
           console.log(err);
         });
     },
+  
   },
 };
 </script>
