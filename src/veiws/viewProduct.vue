@@ -1,4 +1,4 @@
-<template>
+Hi<template>
     <div>
     <div class="flex justify-center mt-10">
       <div class=" w-64 lg:w-1/2  relative">
@@ -146,7 +146,7 @@
        الوصف
      </p>
 
-     <p class="text-xl text-right  leading-6 font-bold px-4 mt-4  mb-20 lg:px-10  ">
+     <p class="text-xl text-right  leading-8 font-bold px-4 mt-4  mb-20 lg:px-10  ">
         {{ product.description }}
      </p>
 </div>
