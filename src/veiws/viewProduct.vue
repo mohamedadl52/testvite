@@ -3,10 +3,10 @@
     <div class="flex justify-center mt-10">
       <div class=" w-64 lg:w-1/2  relative">
 
-        <div>
-          <img   :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ selectImg +'.png'" class="w-full h-64 lg:h-1/2 bg-cover mb-10  " alt="">
+        <div  >
+          <img   :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ selectImg +'.png'" class="w-full h-auto lg:h-1/2 bg-cover mb-10  " alt="">
         </div>
-     <div   class="flex gap-2">
+     <div v-if="productImg"  class="flex gap-2">
 
     <img @click="selectimage(img)" v-for="img in productImg" :key="img"  :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ img +'.png'" class="w-16  h-16 " alt="">
 
