@@ -6,9 +6,9 @@
         <div>
           <img   :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ selectImg +'.png'" class="w-full h-64 lg:h-1/2 bg-cover   " alt="">
         </div>
-     <div   class="flex ">
+     <div   class="flex gap-2">
 
-    <img @click="selectimage(img)" v-for="img in productImg" :key="img"  :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ img +'.png'" class="w-20  h-20 " alt="">
+    <img @click="selectimage(img)" v-for="img in productImg" :key="img"  :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ img +'.png'" class="w-16  h-16 " alt="">
 
      </div>
      <div class="w-full  bgwork2 flex justify-center  items-center h-48 absolute top-0 left-0 " >  
