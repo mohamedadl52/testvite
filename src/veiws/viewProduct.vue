@@ -146,7 +146,7 @@
        الوصف
      </p>
 
-     <pre class="text-xl text-right leading-6 font-bold px-4 mt-4  mb-20 lg:px-10  ">
+     <pre class="text-xl  leading-6 font-bold px-4 mt-4  mb-20 lg:px-10  ">
         {{ product.description }}
      </pre>
 </div>
