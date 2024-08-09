@@ -146,9 +146,9 @@
        الوصف
      </p>
 
-     <div class="text-xl text-center font-bold px-2 mt-4  mb-20 lg:px-10  ">
+     <pre class="text-xl text-center leading-7 font-bold px-2 mt-4  mb-20 lg:px-10  ">
         {{ product.description }}
-     </div>
+     </pre>
 </div>
 </div>
 </template>
