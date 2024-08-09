@@ -56,7 +56,7 @@
         </div>
         <div>
             <textarea
-          class="w-full p-2 shadow-2xl my-2"
+          class="w-full h-64 resizable-textarea overflow-auto p-2 shadow-2xl my-2"
           v-model="product.description"
           type="text"
           placeholder="description"
