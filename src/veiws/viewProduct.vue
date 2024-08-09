@@ -4,7 +4,7 @@
       <div class=" w-64 lg:w-1/2  relative">
 
         <div>
-          <img   :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ selectImg +'.png'" class="w-full h-64 lg:h-1/2 bg-cover   " alt="">
+          <img   :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ selectImg +'.png'" class="w-full h-64 lg:h-1/2 bg-cover mb-10  " alt="">
         </div>
      <div   class="flex gap-2">
 
