@@ -38,8 +38,9 @@
       </div>
       <div class="w-full  lg:w-1/3 mx-auto">
         <div>
-          {{ fileimg.name }}
-        </div>
+          <div   class="flex ">
+
+     </div>
         <div>
             <input
           class="w-full p-2 shadow-2xl my-2"
@@ -50,8 +51,9 @@
         </div>
         <div>
             <textarea
-          class="w-full p-2 shadow-2xl my-2"
-          v-model="product.description"
+          class="w-full h-64 resizable-textarea overflow-auto p-2 shadow-2xl my-2"
+       
+                v-model="product.description"
           type="text"
           placeholder="description"
         > </textarea>
