@@ -1,5 +1,5 @@
 <template>
-            <div  :class=" news ? '  lg:static -left-64' : '  lg:static left-0'" class="transition-all duration-700 absolute w-64 h-full top-64 pt-10 z-10 bg-gray-600"  >
+            <div  :class=" news ? '  lg:static -left-64' : '  lg:static left-0'" class="transition-all duration-700 absolute w-64 h-full top-48 pt-10 z-10 bg-gray-600"  >
   
   
   <!-- header of site -->
