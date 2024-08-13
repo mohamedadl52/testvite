@@ -39,7 +39,10 @@
       <div class="w-full  lg:w-1/3 mx-auto">
         <div>
           <div   class="flex ">
-
+        <div class="flex justify-between" v-for="(file, index) in fileimg" :key="file.name">
+      <p class="text-white">{{ file.name }}</p>
+      <p class="text-red-500" @click="removeFile(index)">X</p>
+    </div>
      </div>
         <div>
             <input
@@ -137,6 +140,9 @@ export default {
     this.getCatogress();
   },
   methods: {
+      removeFile: function(index) {
+    this.fileimg.splice(index, 1);
+      }, 
     getCatogress: function () {
       this.$store.dispatch('catogress/get').then((res) => {
         console.log(res);
