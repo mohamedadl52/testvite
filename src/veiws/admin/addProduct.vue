@@ -58,7 +58,7 @@
        
                 v-model="product.description"
           type="text"
-          placeholder="description"
+          placeholder="descriptiotestttn"
         > </textarea>
         </div>
         <div>
