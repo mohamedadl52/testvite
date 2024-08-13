@@ -30,7 +30,7 @@
                                            <tbody>
                                             <tr v-for="product in products" :key="product.id">
                                                 <td class="border-2 flex gap-2 items-center">
-                                                    <img v-if="product.img_url" class="w-20" :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ product.img_url + '.png' " alt="">
+                                                    <img v-if="product.img_url[0] " class="w-20" :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ product.img_url + '.png' " alt="">
                                                     
                                                     {{product.title}}</td>
                                            
