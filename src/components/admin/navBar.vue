@@ -1,5 +1,5 @@
 <template>
-            <div  :class=" news ? '  lg:static -left-64' : '  lg:static left-0'" class="transition-all duration-700 absolute w-64 h-full top-32 z-10 bg-gray-600"  >
+            <div  :class=" news ? '  lg:static -left-64' : '  lg:static left-0'" class="transition-all duration-700 absolute w-64 h-full top-48 z-10 bg-gray-600"  >
   
   
   <!-- header of site -->
@@ -16,7 +16,7 @@
           <font-awesome-icon class="text-2xl" :icon="['fas', 'home']"></font-awesome-icon>
         </span>
 
-        <span :class=" news ? 'opacity-100' : 'opacity-0'" class="ml-1 font-bold  transtion-all  duration-1000 delay-300">الصفحة الرئيسية</span>
+        <span :class=" news ? 'opacity-0' : 'opacity-100'" class="ml-1 font-bold  transtion-all  duration-1000 delay-300">الصفحة الرئيسية</span>
        </div>
       </li>
       </router-link>
