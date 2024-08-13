@@ -42,7 +42,7 @@
         <div class="flex justify-between" v-for="(file, index) in fileimg" :key="file.name">
       <p class="text-white">{{ file.name }}</p>
       <p class="text-red-500" @click="removeFile(index)">X</p>
-    </div>
+    
      </div>
         <div>
             <input
