@@ -18,7 +18,7 @@
                                        <p class="ml-4 uppercase text-white font-bold mt-10 cursor-pointer" @click="modelV = false">اضف قسم   <span
 class="border ml-4 bg-maincolor p-2 text-white
                                         " >+</span></p>
-                                        <table border="1" class="text-white text-center  border-2 lg:w-1/2 w-full  mx-auto font-semibold  mt-10 overflow-x-scroll">
+                                        <table style="max-width : 360px ; max-height:300px"  border="1" class="text-white text-center  border-2 lg:w-1/2 w-full  mx-auto font-semibold  mt-10 overflow-x-scroll">
                                            <tr class="border-2 bg-gray-500 ">
                                             <td class="border-2  ">id</td>
                                             <td class="border-2">name</td>
