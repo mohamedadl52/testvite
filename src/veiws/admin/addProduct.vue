@@ -6,7 +6,7 @@
           
        <navbar :cat="cat" :news="news" /> 
 
-       <div  class="relative" style="background-color : #22222F">
+       <div  class="absolute" style="background-color : #22222F">
                           <div class="bars ml-4 mt-2" @click="news =! news">
                               <div class="w-10 h-1 bg-white  my-1"></div>
                               <div class="w-10 h-1 bg-white  my-1"></div>
