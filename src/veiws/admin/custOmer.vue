@@ -25,12 +25,12 @@
                                          </select>
                                     </div>
                                     <div class="p-2 bg-cyan-900 text-white w-32 ml-10 mt-10 text-center cursor-pointer"><router-link to="product/add">اضف منتج</router-link></div>
-                                        <table border="1" class="text-white text-center  border-2 w-1/2 mx-auto font-semibold  mt-10  ml-10">
+                                        <table border="1" class="text-white text-center  border-2 w-1/2 mx-auto font-semibold  mt-10 ">
                                            
                                            <tbody>
                                             <tr v-for="product in products" :key="product.id">
                                                 <td class="border-2 flex gap-2 items-center">
-                                                    <img v-if="product.img_url" class="w-20" :src="'/src/assets/uploads/'+ product.img_url" alt="">
+                                                    <img v-if="product.img_url" class="w-20" :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ product.img_url" alt="">
                                                     
                                                     {{product.title}}</td>
                                            
