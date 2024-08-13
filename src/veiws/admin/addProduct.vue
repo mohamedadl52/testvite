@@ -39,7 +39,7 @@
       <div class="w-full  lg:w-1/3 mx-auto">
         <div>
           <div>
-        <div class="flex justify-between" v-for="(file, index) in fileimg" :key="file.name">
+        <div class="flex mb-2 justify-between" v-for="(file, index) in fileimg" :key="file.name">
       <p class="text-white">{{ file.name }}</p>
       <p class="text-red-500" @click="removeFile(index)">X</p>
        </div>
@@ -59,7 +59,7 @@
        
                 v-model="product.description"
           type="text"
-          placeholder="descriptiotestttn"
+          placeholder="description"
         > </textarea>
         </div>
         <div>
