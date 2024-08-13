@@ -29,7 +29,7 @@
           <font-awesome-icon class="text-2xl pointer" :icon="['fas', 'user']"></font-awesome-icon>
         </span>
 
-        <span :class=" news ? 'opacity-100' : 'opacity-0'" class="ml-1 font-bold transtion-all duration-1000 delay-300 ">المنتجات</span>
+        <span :class=" news ? 'opacity-0' : 'opacity-100'" class="ml-1 font-bold transtion-all duration-1000 delay-300 ">المنتجات</span>
        </div>
       </li>
       </router-link>
@@ -40,7 +40,7 @@
           <font-awesome-icon class="text-2xl pointer" :icon="['fas', 'user']"></font-awesome-icon>
         </span>
 
-        <span :class=" news ? 'opacity-100' : 'opacity-0'" class="ml-1 font-bold transtion-all duration-1000 delay-300 ">الاقسام</span>
+        <span :class=" news ? 'opacity-0' : 'opacity-100'" class="ml-1 font-bold transtion-all duration-1000 delay-300 ">الاقسام</span>
        </div>
       </li>
  
@@ -48,7 +48,7 @@
       <router-link to="/admin/catogress">
       <li class="txet-center p-2">
         <router-link style="  --tw-bg-opacity: 1;
-    background-color: rgb(126 36 36 / var(--tw-bg-opacity));" class="text-white ml-4 p-2"  @click="logout()" to="/logout">
+    background-color: rgb(126 36 36 / var(--tw-bg-opacity));" class="text-white ml-4 p-2 flex justify-center"  @click="logout()" to="/logout">
            <span>
             <font-awesome-icon :icon="['fas', 'sign-out']" />
             تسجيل خروج
