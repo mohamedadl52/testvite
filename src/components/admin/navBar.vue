@@ -1,5 +1,5 @@
 <template>
-            <div  :class=" news ? 'lg:w-1/6 w-1/2 ' : 'w-24'" class="transition-all duration-700 bg-gray-600"  >
+            <div  :class=" news ? 'lg:w-1/6 w-1/2 relative lg:static -left-64 ' : 'w-24'" class="transition-all duration-700 bg-gray-600"  >
   
   
   <!-- header of site -->
