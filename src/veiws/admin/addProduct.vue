@@ -25,7 +25,7 @@
     enctype="multipart/form-data"
     @submit.prevent="addProdut"
   >
-    <div class="container shadow-2xl pb-20 m-auto w-11/12">
+    <div class="container shadow-2xl pb-20 m-auto w-ful">
       <div class="w-full lg:w-1/3 lg:mx-auto">
         <input
           class="w-full my-2  shadow-2xl"
@@ -47,7 +47,7 @@
      </div>
         <div>
             <input
-          class="w-full p-2 shadow-2xl my-2"
+          class="w-full p-2 px-1 shadow-2xl my-2"
           v-model="product.title"
           type="text"
           placeholder="title"
@@ -55,7 +55,7 @@
         </div>
         <div>
             <textarea
-          class="w-full h-64 resizable-textarea overflow-auto p-2 shadow-2xl my-2"
+          class="w-full h-64 resizable-textarea overflow-auto p-2 px-1 shadow-2xl my-2"
        
                 v-model="product.description"
           type="text"
@@ -64,7 +64,7 @@
         </div>
         <div>
             <input
-          class="w-full p-2 shadow-2xl my-2"
+          class="w-full p-2 px-1 shadow-2xl my-2"
           v-model="product.qyt"
           type="number"
           placeholder="qyt"
