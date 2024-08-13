@@ -38,7 +38,7 @@
       </div>
       <div class="w-full  lg:w-1/3 mx-auto">
         <div>
-          <div   class="flex ">
+          <div>
         <div class="flex justify-between" v-for="(file, index) in fileimg" :key="file.name">
       <p class="text-white">{{ file.name }}</p>
       <p class="text-red-500" @click="removeFile(index)">X</p>
@@ -80,7 +80,7 @@
           placeholder="price"
         />
       </div>
-      <div class="w-1/3 p-2 text-right shadow-2xl mx-auto">
+      <div class="w-1/3  p-2 px-4 text-right shadow-2xl mx-auto">
         <select
           class="border-none text-right w-32 px-2 py-2 bg-gray-500 text-white"
           ref="catogres"
