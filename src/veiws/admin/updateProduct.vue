@@ -175,13 +175,44 @@ export default {
       const formData = new FormData()
       if (!this.fileimg) {
 
-formData.append(`files`, this.productImg);
-          
+     formData.append(`files`, this.productImg);
+     formData.append("title", this.product.title);
+      formData.append("price", this.product.price);
+      formData.append("description", this.product.description);
+      formData.append("qyt", this.product.qyt);
+      formData.append("catogres", this.$refs.catogres.value);
+      
+      store.dispatch("product/updateProduct", {id:this.$route.params.id , formData })
+      .then(() => {
+        this.getproductId()
+        alert(" تم تعديل بنجاح بدون التعديل في الصور");
+        this.fileimg = []
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+       
       } else {
 
           this.fileimg.forEach((file) => {
         formData.append(`fileImg`, file);
       })
+          formData.append("title", this.product.title);
+      formData.append("price", this.product.price);
+      formData.append("description", this.product.description);
+      formData.append("qyt", this.product.qyt);
+      formData.append("catogres", this.$refs.catogres.value);
+      
+      store.dispatch("product/updateProduct", {id:this.$route.params.id , formData })
+      .then(() => {
+        this.getproductId()
+        alert(" تم تعديل بنجاح بالصور");
+        this.fileimg = []
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    
       } 
       formData.append("title", this.product.title);
       formData.append("price", this.product.price);
