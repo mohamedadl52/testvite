@@ -178,10 +178,10 @@ export default {
      formData.append(`files`, this.productImg);
      formData.append("title", this.product.title);
       formData.append("price", this.product.price);
-      formData.append("description", this.product.description);
+      formData.append("descنription", this.product.description);
       formData.append("qyt", this.product.qyt);
       formData.append("catogres", this.$refs.catogres.value);
-      
+      console.log(formData)
       store.dispatch("product/updateProduct", {id:this.$route.params.id , formData })
       .then(() => {
         this.getproductId()
