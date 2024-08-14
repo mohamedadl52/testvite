@@ -171,13 +171,18 @@ export default {
       console.log(this.fileimg)
     },
     updateProdut() {
-      if (!this.fileimg) {
-        alert("يجب تحديد الصور");
-      }
+      
       const formData = new FormData()
-      this.fileimg.forEach((file) => {
+      if (!this.fileimg) {
+
+formData.append(`files`, this.productImg);
+          
+      } else {
+
+          this.fileimg.forEach((file) => {
         formData.append(`fileImg`, file);
       })
+      } 
       formData.append("title", this.product.title);
       formData.append("price", this.product.price);
       formData.append("description", this.product.description);
