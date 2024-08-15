@@ -85,6 +85,7 @@
           class="border-none text-right w-32 px-2 py-2 bg-gray-500 text-white"
           ref="catogres"
           v-if="catogress"
+          
         >
           <option v-for="cat in catogress" :key="cat._id" :value="cat._id">
             {{ cat.type }}
@@ -173,7 +174,7 @@ export default {
     updateProdut() {
       
       const formData = new FormData()
-      if (!this.fileimg) {
+      if (this.fileimg==[] ) {
 
      formData.append(`files`, this.productImg);
      formData.append("title", this.product.title);
@@ -214,21 +215,7 @@ export default {
         });
     
       } 
-      formData.append("title", this.product.title);
-      formData.append("price", this.product.price);
-      formData.append("description", this.product.description);
-      formData.append("qyt", this.product.qyt);
-      formData.append("catogres", this.$refs.catogres.value);
       
-      store.dispatch("product/updateProduct", {id:this.$route.params.id , formData })
-      .then(() => {
-        this.getproductId()
-        alert("تم تعديل بنجاح");
-        this.fileimg = []
-        })
-        .catch((err) => {
-          console.log(err);
-        });
     },
   
   },
