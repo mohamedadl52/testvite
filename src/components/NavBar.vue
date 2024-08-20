@@ -4,9 +4,9 @@
       <div>
         <img class="w-12 h-16" src="..//assets//logot.jpg" alt="" />
       </div>
-      <div>
+      <!-- <div>
         <p class="text-maincolor uppercase font-extrabold text-3xl lg:text-5xl font-serif p-0"> PRO Store</p>
-      </div>
+      </div> -->
       <!-- <div>
         <span class="flex">
               

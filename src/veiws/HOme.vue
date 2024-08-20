@@ -17,24 +17,30 @@
               </div>  
             </div>
             <div  class="lg:w-1/2">
-
+              <!-- <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div v-for="product in filteredCardItems" :key="product.id" class="swiper-slide">
+        <img :src="getImageUrl(product.img_url[0])" class="w-full h-56 object-contain mx-auto" alt="">
+        <h3>{{ product.title }}</h3>
+        <p v-html="product.description"></p>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div> -->
             </div>
         </div>
     </div>
-    <div 
-    class="mb-20 container mx-auto " >
-        <div data-aos="zoom-out-up" class="mt-20">
-                <!-- <h1 style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor "> اخر المنتجات >  </h1> -->
+        <div class="mt-20 ">
+                <h1 style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor "> اخر المنتجات >  </h1>
 
-              <div class="flex gap-4 mt-2 flex-wrap justify-center">
-                <!-- <div>
-             
-             <Card   :card="card" v-for="item in carditem" :productImg ='item.img_url' :idProduct="item._id"  :key="item.id" :title="item.title" :price="item.price" /> 
+              <div v-if="carditem" class="flex gap-4 mt-2 flex-wrap flex-row-reverse justify-center">
+          
+                
+                <Card v-for="item in filteredCardItems" :key="item._id" 
+          :productImg="item.img_url[0]" :idProduct="item._id" :title="item.title" :price="item.price" />  
         
-         </div> -->
-              </div>
-               
-        </div>
+        ``</div>
+              
         <!-- <div data-aos="zoom-out-up" class="mt-20">
             <h1 style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor ">  الافضل >  </h1>
 
@@ -43,6 +49,32 @@
               </div>
                
         </div> -->
+
+        <p class="text-blue-500 text-xl font-bol
+         ml-20 mt-2">عرض المزيد</p>
+        
+
+    </div>
+        <div class="mt-20 ">
+                <h1 style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor "> منتجات الهواتف >  </h1>
+
+              <div v-if="carditem" class="flex gap-4 mt-2 flex-wrap flex-row justify-center">
+            
+             
+                <Card v-for="item in filterephoensItems" :key="item._id" 
+          :productImg="item.img_url[0]" :idProduct="item._id" :title="item.title" :price="item.price" />   </div>
+              
+        <!-- <div data-aos="zoom-out-up" class="mt-20">
+            <h1 style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor ">  الافضل >  </h1>
+
+              <div class="flex gap-4 mt-2 flex-wrap justify-center">
+                <prodduct v-for="item in carditem"  :key="item.id" :name="item.name" :price="item.price"  />
+              </div>
+               
+        </div> -->
+
+        <p class="text-blue-500 text-xl font-bol
+         ml-20 mt-2 mb-10">عرض المزيد</p>
         
 
     </div>
@@ -55,24 +87,49 @@
 // import { onMounted, ref  } from 'vue'
 import tessst from "../assets//images//key7.jpg";
 // import store from '../store'
-// import {ref , onMounted} from 'vue'
-// import Card from '../components/carD.vue';
-// import store from '../store/index'
-// let carditem = ref([])
+import {ref , onMounted , computed} from 'vue'
+import Card from '../components/carD.vue';
+import store from '../store/index'
+import Swiper from 'swiper';
+let carditem = ref([])
 let test = tessst
-// let getProduct = ()=>{
+let getProduct = ()=>{
 
-//   store.dispatch('product/get').then((res)=>{
-
-//     carditem.value = res
-//   })
+  store.dispatch('product/get').then((res)=>{
+    console.log(res)
+    carditem.value = res.reverse()
+  })
   
-// }
+}
 
-// onMounted(()=>{
-//  getProduct()
-// })
 
+const filteredCardItems = computed(() => {
+      return carditem.value.slice(0, 3); // Returns the first 3 items from carditem array
+    });
+
+
+const filterephoensItems = computed(() => {
+  return carditem.value.filter(item => item.catogres._id == "66ab7a9d86053eabe1abd716" ).slice(0,3).reverse();
+    });
+
+
+// const getImageUrl = (img) => `https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/${img}.png`;
+   
+onMounted(() => {
+ new Swiper('.swiper-container', {
+    loop: true,
+    autoplay: {
+      delay: 5000, // 5 seconds delay between slides
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+});
+onMounted(() => {
+  getProduct()
+    });
 
 // export default {
 //     components :{
@@ -104,6 +161,7 @@ let test = tessst
 // }
 </script>
 <style scoped>
+/* Add any custom styling for the slider here */
 
 
 .imfly {
@@ -130,5 +188,14 @@ let test = tessst
     
     transform: translateY(8px);
     }
+}
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 200px; /* Adjust the height as needed */
 }
 </style>

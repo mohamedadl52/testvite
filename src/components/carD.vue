@@ -1,8 +1,8 @@
 <template>
-     <div class=" w-64 shadow-2xl relative">
-  <img  v-if="typeof productImg === 'string'"   :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ productImg +'.png'" class="w-full h-56  " alt="">
+     <div class=" w-64 h-auto shadow-2xl relative">
+  <img  v-if="typeof productImg === 'string'"   :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ productImg +'.png'" class="w-full h-56 object-contain mx-auto" alt="">
       <div v-if="typeof productImg !== 'string'">
-    <img  v-for="img in productImg" :key="img"  :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ img +'.png'" class="w-full h-56  " alt="">
+    <img  v-for="img in productImg" :key="img"  :src="'https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/'+ img +'.png'" class="w-full h-56 object-contain mx-auto" alt="">
  
       </div>
              <div class="w-full  bgwork2 flex justify-center  items-center h-48 absolute top-0 left-0 " >  
@@ -42,9 +42,9 @@
     </div>
     </div>
      <div class="px-2 py-1">
-      <div class="flex justify-between mt-2">
+      <div class=" justify-between mt-2">
         
-        <font-awesome-icon
+        <!-- <font-awesome-icon
                     class="
                     text-white
                       bg-maincolor
@@ -58,12 +58,12 @@
                       cursor-pointer
                     "
                     :icon="['fas', 'heart']"
-                  />
-      <p   class="text-lg font-bold text-seconcolor ">{{ title }}</p>
+                  /> -->
+      <p style="text-align: center;"   class="text-sm font-bold text-center text-seconcolor ">{{ title }}</p>
       </div>
-      <p class="text-center flex gap-2 justify-center"> <span class="text-maincolor text-2xl font-bold">جنيه</span> <span class="text-maincolor text-2xl font-bold"> {{price}}  </span> </p>
+      <p class="text-center flex gap-2 justify-center"> <span class="text-maincolor text-lg font-bold">جنيه</span> <span class="text-maincolor text-lg font-bold"> {{price}}  </span> </p>
        <p class="text-center p-1"> 
-        &lt; &lt;
+       
         <!-- <font-awesome-icon
                   class="
                     text-yellow-500
@@ -122,10 +122,10 @@
                 />
               
           <span class="text-lg ml-2 text-seconcolor ">(150)</span> -->
-          <router-link  :to="'/viewProduct/'+idProduct" class="text-blue-500  text-center font-bold text-lg" > 
-          تفاصيل
+          <router-link  :to="'/viewProduct/'+idProduct" class="text-blue-500  text-center font-bold text-sm" > 
+ تفاصيل
           </router-link>
-          >>
+        
         </p> 
                <p class="text-center p-2">
                 <a href="https://wa.me/249907452551" class="text-white bg-maincolor p-1 text-center font-bold px-4">
@@ -178,17 +178,7 @@ transition: all 0.5s;
 .iconspage {
   display: none;
 }
-.bgwork:hover {
-  background: rgba(0, 0, 0, 0.8);
-  cursor :pointer
-}
-.bgwork2:hover {
-  background: rgba(0, 0, 0, 0.8);
-  cursor :pointer
-}
-.bgwork2:hover  .iconspage{
-  display: block;
-}
+
 
 
 </style>
