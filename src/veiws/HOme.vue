@@ -27,7 +27,7 @@
   </div> -->
             </div>
         </div>
-    </div>
+    
    <div v-if="loading" >
 
       <div class="loading-spinner">
