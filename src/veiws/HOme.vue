@@ -1,5 +1,19 @@
 <template>
-      <img class="w-full lg:hidden" height="200px" src="../assets//images//key7.jpg" alt="">
+      
+   <div v-if="loading" >
+
+      <div class="loading-spinner">
+
+        
+      </div>
+      <transition name="bounce">
+      <h1 class="bunny-text">الرجاء الانتظار</h1>
+    </transition>
+    </div>
+    <div v-else>
+       
+   <div class="overflow-hidden">
+         <img class="w-full lg:hidden" height="200px" src="../assets//images//key7.jpg" alt="">
        
        
        <div  class="flex flex-col container justify-center lg:flex-row lg:justify-center " >
@@ -28,19 +42,6 @@
             </div>
         </div>
     </div>
-   <div v-if="loading" >
-
-      <div class="loading-spinner">
-
-        
-      </div>
-      <transition name="bounce">
-      <h1 class="bunny-text">الرجاء الانتظار</h1>
-    </transition>
-    </div>
-    <div v-else>
-       
-   <div class="overflow-hidden">
     <div  :style="{background :`url(${test})` , filter : 'hue-rotate(-194deg)' , position: 'relative' ,  backgroundSize: 'cover'  }" class="relative h-100 lg:h-screen pb-10 bg-cover  w-full  ">
     
         <div class="mt-20 ">
