@@ -127,7 +127,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import {ref , onMounted} from 'vue'
 import Card from '../components/carD.vue';
 import store from '../store/index';
 
