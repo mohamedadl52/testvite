@@ -143,6 +143,7 @@ onMounted(() => {
   });
 });
 onMounted(() => {
+  loading.value = false
   getProduct()
     });
 
