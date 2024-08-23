@@ -6,7 +6,7 @@
 
   
   
-    <div v-if="loading" class="loading-spinner">
+    <div v-if="loading" >
 
       <div class="loading-spinner">
 
