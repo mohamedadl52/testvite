@@ -6,17 +6,9 @@
 
   
   
-    <div v-if="loading" >
+    
 
-      <div class="loading-spinner">
-
-        
-      </div>
-      <transition name="bounce">
-      <h1 class="bunny-text">الرجاء الانتظار</h1>
-    </transition>
-    </div>
-    <div v-else>
+    
       <!-- Your existing content -->
 
   <div>
@@ -140,7 +132,7 @@
      </div>
 </div>
     </div>
-    </div>
+    
 
 </template>
 
@@ -153,11 +145,11 @@ let carditem = ref([]);
 let catogress = ref([]);
 let selected = ref(['all']);
 let visitorCount = ref(0);
-let loading = ref(true);
+
 let getProduct = () => {
   store.dispatch('product/get').then((res) => {
     carditem.value = res;
-loading.value = false
+
   });
 };
 
@@ -196,7 +188,7 @@ let incrementCount = () => {
 };
 
 onMounted(() => {
-  loading.value = true
+
   getProduct();
   getCatogress();
   incrementCount() ;
