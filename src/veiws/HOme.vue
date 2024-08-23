@@ -1,17 +1,9 @@
 <template>
       
     
-   <div v-if="loading" >
 
-      <div class="loading-spinner">
-
-        
-      </div>
-      <transition name="bounce">
-      <h1 class="bunny-text">الرجاء الانتظار</h1>
-    </transition>
-    </div>
-    <div v-else>
+      
+    
       <img class="w-full lg:hidden" height="200px" src="../assets//images//key7.jpg" alt="">
        
        
@@ -27,18 +19,7 @@
                 </router-link>   
               </div>  
             </div>
-            <div  class="lg:w-1/2">
-              <!-- <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div v-for="product in filteredCardItems" :key="product.id" class="swiper-slide">
-        <img :src="getImageUrl(product.img_url[0])" class="w-full h-56 object-contain mx-auto" alt="">
-        <h3>{{ product.title }}</h3>
-        <p v-html="product.description"></p>
-      </div>
-    </div>
-    <div class="swiper-pagination"></div>
-  </div> -->
-            </div>
+            
         </div> 
    <div class="overflow-hidden">
     <div  :style="{background :`url(${test})` , filter : 'hue-rotate(-194deg)' , position: 'relative' ,  backgroundSize: 'cover'  }" class="relative h-100 lg:h-screen pb-10 bg-cover  w-full  ">
@@ -94,7 +75,7 @@
    </div>
        </div>
 
-          </div>
+          
 </template>
 
 <script setup>
