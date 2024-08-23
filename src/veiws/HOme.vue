@@ -1,4 +1,16 @@
 <template>
+   <div v-if="loading" >
+
+      <div class="loading-spinner">
+
+        
+      </div>
+      <transition name="bounce">
+      <h1 class="bunny-text">الرجاء الانتظار</h1>
+    </transition>
+    </div>
+    <div v-else>
+       
    <div class="overflow-hidden">
     <div  :style="{background :`url(${test})` , filter : 'hue-rotate(-194deg)' , position: 'relative' ,  backgroundSize: 'cover'  }" class="relative h-100 lg:h-screen pb-10 bg-cover  w-full  ">
        <img class="w-full lg:hidden" height="200px" src="../assets//images//key7.jpg" alt="">
@@ -39,7 +51,7 @@
                 <Card v-for="item in filteredCardItems" :key="item._id" 
           :productImg="item.img_url[0]" :idProduct="item._id" :title="item.title" :price="item.price" />  
         
-        ``</div>
+        </div>
               
         <!-- <div data-aos="zoom-out-up" class="mt-20">
             <h1 style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor ">  الافضل >  </h1>
@@ -79,6 +91,7 @@
 
     </div>
    </div>
+       </div>
 </template>
 
 <script setup>
@@ -92,11 +105,13 @@ import Card from '../components/carD.vue';
 import store from '../store/index'
 import Swiper from 'swiper';
 let carditem = ref([])
+let loading = ref(true);
 let test = tessst
 let getProduct = ()=>{
 
   store.dispatch('product/get').then((res)=>{
     console.log(res)
+    loading.value = false
     carditem.value = res.reverse()
   })
   
@@ -189,13 +204,54 @@ onMounted(() => {
     transform: translateY(8px);
     }
 }
+   
 .swiper-container {
   width: 100%;
   height: 100%;
+   
 }
 
 .swiper-slide img {
   width: 100%;
   height: 200px; /* Adjust the height as needed */
 }
+
+   .loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20% auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.bunny-text {
+  font-size: 2rem;
+  font-weight: bold;
+
+  text-align : center ;
+
+  color: #ff69b4; /* Pink color for the bunny style */
+}
+@keyframes bounce-in {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+
+
 </style>
