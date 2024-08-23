@@ -254,9 +254,12 @@ let hidecat = ref(false);
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-bunny-text {
+.bunny-text {
   font-size: 2rem;
   font-weight: bold;
+
+  text-align : center ;
+
   color: #ff69b4; /* Pink color for the bunny style */
 }
 
