@@ -22,7 +22,7 @@
   <div>
     
     <!-- Your existing code continues here -->
-    <p style:"direction : rtl" class="px-20 mt-4">
+    <p style="direction : rtl" class="px-20 mt-4">
 <font-awesome-icon
   class="text-seconcolor hover:text-gray-600 transition-all duration-500 text-2xl "
   :icon="['fas', 'home']"
