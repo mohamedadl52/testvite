@@ -204,15 +204,17 @@ let hidecat = ref(false);
 }
 
 .visitor-count {
-  font-size: 18px;
+  
+  font-size: 20px;
   margin: 0;
+  font-weight: bold;
+  font-family: 'Amiri', sans-serif; /* Applying a nice Arabic font */
 }
 
 /* Animation styles remain the same */
 @keyframes colorChange {
   0% { color: #f00; } /* Start color */
-  50% { color: #0f0; } /* Middle color */
-  100% { color: #00f; } /* End color */
+   100% { color: #00f; } /* End color */
 }
 
 .visitor-count-animation {
@@ -220,5 +222,5 @@ let hidecat = ref(false);
 }
 
 /* Your existing styles */
-
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
 </style>
