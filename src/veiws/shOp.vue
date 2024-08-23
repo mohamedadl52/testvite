@@ -6,7 +6,16 @@
 
   
   
-    <div v-if="loading" class="loading-spinner"></div>
+    <div v-if="loading" class="loading-spinner">
+
+      <div class="loading-spinner">
+
+        
+      </div>
+      <transition name="bounce">
+      <h1 class="bunny-text">الرجاء الانتظار</h1>
+    </transition>
+    </div>
     <div v-else>
       <!-- Your existing content -->
 
@@ -245,7 +254,27 @@ let hidecat = ref(false);
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+bunny-text {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff69b4; /* Pink color for the bunny style */
+}
 
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 /* Your existing styles */
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
 </style>
