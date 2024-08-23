@@ -196,6 +196,7 @@ let incrementCount = () => {
 };
 
 onMounted(() => {
+  loading.value = true
   getProduct();
   getCatogress();
   incrementCount() ;
