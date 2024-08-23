@@ -143,10 +143,13 @@ onMounted(() => {
   });
 });
 onMounted(() => {
-  loading.value = false
+  loading.value = true
+  
+    });
+onMounted(() => {
+  
   getProduct()
     });
-
 // export default {
 //     components :{
 //         // prodduct
