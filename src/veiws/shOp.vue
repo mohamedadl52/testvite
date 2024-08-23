@@ -22,7 +22,7 @@
   <div>
     
     <!-- Your existing code continues here -->
-    <p class="px-20 mt-4">
+    <p style:"direction : rtl" class="px-20 mt-4">
 <font-awesome-icon
   class="text-seconcolor hover:text-gray-600 transition-all duration-500 text-2xl "
   :icon="['fas', 'home']"
@@ -30,7 +30,7 @@
   class="text-seconcolor hover:text-gray-600 transition-all duration-500 text-xl mr-1"
   :icon="['fas', 'chevron-right']"
 />  
- <span class="text-lg text-seconcolor font-bold">shop</span>
+ <span class="text-lg text-seconcolor font-bold">السوق</span>
 </p>
 
 <div class="container lg:flex p-4  mx-auto">
