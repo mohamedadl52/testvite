@@ -5,7 +5,7 @@
   </div>
 
   
-  <div>
+  
     <div v-if="loading" class="loading-spinner"></div>
     <div v-else>
       <!-- Your existing content -->
