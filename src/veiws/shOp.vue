@@ -3,6 +3,13 @@
   <div class="visitor-count-container">
     <h2 :style="{ color: visitorColor }" class="visitor-count visitor-count-animation">عدد الزوار: {{ visitorCount }}</h2>
   </div>
+
+  
+  <div>
+    <div v-if="loading" class="loading-spinner"></div>
+    <div v-else>
+      <!-- Your existing content -->
+
   <div>
     
     <!-- Your existing code continues here -->
@@ -124,6 +131,8 @@
      </div>
 </div>
     </div>
+    </div>
+
 </template>
 
 <script setup>
@@ -135,10 +144,11 @@ let carditem = ref([]);
 let catogress = ref([]);
 let selected = ref(['all']);
 let visitorCount = ref(0);
-
+let loading = ref(true);
 let getProduct = () => {
   store.dispatch('product/get').then((res) => {
     carditem.value = res;
+loading.value = false
   });
 };
 
@@ -219,6 +229,21 @@ let hidecat = ref(false);
 
 .visitor-count-animation {
   animation: colorChange 2s infinite alternate; /* Alternate color change animation */
+}
+/* Loading spinner styles */
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20% auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Your existing styles */
