@@ -28,7 +28,7 @@
   :icon="['fas', 'home']"
 />  <font-awesome-icon
   class="text-seconcolor hover:text-gray-600 transition-all duration-500 text-xl mr-1"
-  :icon="['fas', 'chevron-right']"
+  :icon="['fas', 'chevron-left']"
 />  
  <span class="text-lg text-seconcolor font-bold">السوق</span>
 </p>
