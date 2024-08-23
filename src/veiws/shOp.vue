@@ -1,9 +1,10 @@
 <template>
+  
+  <div class="visitor-count-container">
+    <h2 :style="{ color: visitorColor }" class="visitor-count">عدد الزوار: {{ visitorCount }}</h2>
+  </div>
   <div>
-    <div style='direction : rtl' >
-      <h2>عدد الزوار: {{ visitorCount }}</h2>
-          </div>
-
+    
     <!-- Your existing code continues here -->
     <p class="px-20 mt-4">
 <font-awesome-icon
@@ -189,4 +190,35 @@ let hidecat = ref(false);
 
 <style scoped>
 /* Your existing styles */
+  
+/* Styles for visitor count display at the bottom */
+.visitor-count-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.visitor-count {
+  font-size: 18px;
+  margin: 0;
+}
+
+/* Animation styles remain the same */
+@keyframes colorChange {
+  0% { color: #f00; } /* Start color */
+  50% { color: #0f0; } /* Middle color */
+  100% { color: #00f; } /* End color */
+}
+
+.visitor-count-animation {
+  animation: colorChange 2s infinite alternate; /* Alternate color change animation */
+}
+
+/* Your existing styles */
+
 </style>
