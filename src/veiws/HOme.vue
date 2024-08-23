@@ -1,20 +1,10 @@
 <template>
-      
-   <div v-if="loading" >
-
-      <div class="loading-spinner">
-
-        
-      </div>
-      <transition name="bounce">
-      <h1 class="bunny-text">الرجاء الانتظار</h1>
-    </transition>
-    </div>
-    <div v-else>
-       
    <div class="overflow-hidden">
-         <img class="w-full lg:hidden" height="200px" src="../assets//images//key7.jpg" alt="">
-       
+         
+    
+    <div  :style="{background :`url(${test})` , filter : 'hue-rotate(-194deg)' , position: 'relative' ,  backgroundSize: 'cover'  }" class="relative h-100 lg:h-screen pb-10 bg-cover  w-full  ">
+    
+       <img class="w-full lg:hidden" height="200px" src="../assets//images//key7.jpg" alt="">
        
        <div  class="flex flex-col container justify-center lg:flex-row lg:justify-center " >
            <div class=" ml-5 lg:mt-64">
@@ -28,26 +18,14 @@
                 </router-link>   
               </div>  
             </div>
-            <div  class="lg:w-1/2">
-              <!-- <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div v-for="product in filteredCardItems" :key="product.id" class="swiper-slide">
-        <img :src="getImageUrl(product.img_url[0])" class="w-full h-56 object-contain mx-auto" alt="">
-        <h3>{{ product.title }}</h3>
-        <p v-html="product.description"></p>
-      </div>
-    </div>
-    <div class="swiper-pagination"></div>
-  </div> -->
-            </div>
+            
         </div>
-    </div>
-    <div  :style="{background :`url(${test})` , filter : 'hue-rotate(-194deg)' , position: 'relative' ,  backgroundSize: 'cover'  }" class="relative h-100 lg:h-screen pb-10 bg-cover  w-full  ">
-    
-        <div class="mt-20 ">
-                <h1 style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor "> اخر المنتجات >  </h1>
+          </div>
+        <div v-if="carditem" class="mt-20 ">
+       
+                <h1 v-if="carditem" style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor "> اخر المنتجات >  </h1>
 
-              <div v-if="carditem" class="flex gap-4 mt-2 flex-wrap flex-row-reverse justify-center">
+              <div class="flex gap-4 mt-2 flex-wrap flex-row-reverse justify-center">
           
                 
                 <Card v-for="item in filteredCardItems" :key="item._id" 
@@ -55,21 +33,14 @@
         
         </div>
               
-        <!-- <div data-aos="zoom-out-up" class="mt-20">
-            <h1 style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor ">  الافضل >  </h1>
-
-              <div class="flex gap-4 mt-2 flex-wrap justify-center">
-                <prodduct v-for="item in carditem"  :key="item.id" :name="item.name" :price="item.price"  />
-              </div>
-               
-        </div> -->
+        
 
         <p class="text-blue-500 text-xl font-bol
          ml-20 mt-2">عرض المزيد</p>
         
 
     </div>
-        <div class="mt-20 ">
+        <div v-if="carditem" class="mt-20 ">
                 <h1 style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor "> منتجات الهواتف >  </h1>
 
               <div v-if="carditem" class="flex gap-4 mt-2 flex-wrap flex-row justify-center">
@@ -78,14 +49,7 @@
                 <Card v-for="item in filterephoensItems" :key="item._id" 
           :productImg="item.img_url[0]" :idProduct="item._id" :title="item.title" :price="item.price" />   </div>
               
-        <!-- <div data-aos="zoom-out-up" class="mt-20">
-            <h1 style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor ">  الافضل >  </h1>
-
-              <div class="flex gap-4 mt-2 flex-wrap justify-center">
-                <prodduct v-for="item in carditem"  :key="item.id" :name="item.name" :price="item.price"  />
-              </div>
-               
-        </div> -->
+        
 
         <p class="text-blue-500 text-xl font-bol
          ml-20 mt-2 mb-10">عرض المزيد</p>
@@ -93,7 +57,7 @@
 
     </div>
    </div>
-       </div>
+       
 </template>
 
 <script setup>
