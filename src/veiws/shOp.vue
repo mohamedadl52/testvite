@@ -2,8 +2,7 @@
   <div>
     <div style='direction : rtl' >
       <h2>عدد الزوار: {{ visitorCount }}</h2>
-      <button @click="incrementCount">Increment Count</button>
-    </div>
+          </div>
 
     <!-- Your existing code continues here -->
     <p class="px-20 mt-4">
@@ -179,7 +178,9 @@ let incrementCount = () => {
 onMounted(() => {
   getProduct();
   getCatogress();
+  incrementCount() ;
   fetchVisitorCount();
+  
 });
 
 let card = ref(true);
