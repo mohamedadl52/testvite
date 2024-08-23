@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div>
-      <h2>Visitor Count: {{ visitorCount }}</h2>
+    <div style='direction : rtl' >
+      <h2>عدد الزوار: {{ visitorCount }}</h2>
       <button @click="incrementCount">Increment Count</button>
     </div>
 
@@ -167,7 +167,13 @@ let filterPro = () => {
 };
 
 let incrementCount = () => {
-  visitorCount.value++;
+  fetch('https://shop-le2d.onrender.com/incrementCount', { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            this.fetchVisitorCount();
+          }
+        });
 };
 
 onMounted(() => {
