@@ -1,7 +1,7 @@
 <template>
   
   <div class="visitor-count-container">
-    <h2 :style="{ color: visitorColor }" class="visitor-count visitor-count-animation">عدد الزوار: {{ visitorCount }}</h2>
+    <h2 class="visitor-count visitor-count-animation">عدد الزوار: {{ visitorCount }}</h2>
   </div>
 
   
