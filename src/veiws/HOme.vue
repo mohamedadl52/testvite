@@ -69,15 +69,12 @@ import tessst from "../assets//images//key7.jpg";
 import {ref , onMounted , computed} from 'vue'
 import Card from '../components/carD.vue';
 import store from '../store/index'
-import Swiper from 'swiper';
 let carditem = ref([])
-let loading = ref(true);
 let test = tessst
 let getProduct = ()=>{
 
   store.dispatch('product/get').then((res)=>{
     console.log(res)
-    loading.value = false
     carditem.value = res.reverse()
   })
   
@@ -96,51 +93,12 @@ const filterephoensItems = computed(() => {
 
 // const getImageUrl = (img) => `https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/${img}.png`;
    
-onMounted(() => {
- new Swiper('.swiper-container', {
-    loop: true,
-    autoplay: {
-      delay: 5000, // 5 seconds delay between slides
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-  });
-});
 
 onMounted(() => {
   
   getProduct()
     });
-// export default {
-//     components :{
-//         // prodduct
-//     } ,
-//     data(){
-//         return {
-//        test : tessst ,
-//      carditem : [] 
-//         }
-//     } ,
-//    computed :  {
-//      getProduct : ()=>{
 
-// store.dispatch('product/get').then((res)=>{
-// console.log(this.carditem)
-// console.log(res)
-// })
-
-// }
-//    } , 
-//    created (){
-//     this.getProduct
-//    }
-   
-
-
-    
-// }
 </script>
 <style scoped>
 /* Add any custom styling for the slider here */
