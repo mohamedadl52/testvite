@@ -1,8 +1,6 @@
 <template>
   
-  <div class="visitor-count-container">
-    <h2 class="visitor-count visitor-count-animation">عدد الزوار: {{ visitorCount }}</h2>
-  </div>
+  
 
   
   
@@ -144,7 +142,7 @@ import store from '../store/index';
 let carditem = ref([]);
 let catogress = ref([]);
 let selected = ref(['all']);
-let visitorCount = ref(0);
+
 
 let getProduct = () => {
   store.dispatch('product/get').then((res) => {
@@ -153,13 +151,7 @@ let getProduct = () => {
   });
 };
 
-let fetchVisitorCount = () => {
-  fetch('https://shop-le2d.onrender.com/visitorCount')
-    .then(response => response.json())
-    .then(data => {
-      visitorCount.value = data.count;
-    });
-};
+
 
 let getCatogress = () => {
   store.dispatch('catogress/get').then((res) => {
@@ -177,22 +169,25 @@ let filterPro = () => {
   }
 };
 
-let incrementCount = () => {
-  fetch('https://shop-le2d.onrender.com/incrementCount', { method: 'POST' })
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            this.fetchVisitorCount();
-          }
-        });
-};
+
 
 onMounted(() => {
 
   getProduct();
   getCatogress();
-  incrementCount() ;
-  fetchVisitorCount();
+  let fetchVisitorCount = () => {
+  fetch('https://shop-le2d.onrender.com/visitorCount')
+    .then(response => response.json())
+    .then(data => {
+      visitorCount.value = data.count;
+    });
+};let fetchVisitorCount = () => {
+  fetch('https://shop-le2d.onrender.com/visitorCount')
+    .then(response => response.json())
+    .then(data => {
+      visitorCount.value = data.count;
+    });
+};
   
 });
 
