@@ -175,18 +175,7 @@ onMounted(() => {
 
   getProduct();
   getCatogress();
-  let fetchVisitorCount = () => {
-  fetch('https://shop-le2d.onrender.com/visitorCount')
-    .then(response => response.json())
-    .then(data => {
-      visitorCount.value = data.count;
-    });
-};let fetchVisitorCount = () => {
-  fetch('https://shop-le2d.onrender.com/visitorCount')
-    .then(response => response.json())
-    .then(data => {
-      visitorCount.value = data.count;
-    });
+  
 };
   
 });
