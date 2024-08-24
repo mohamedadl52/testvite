@@ -1,6 +1,9 @@
 <template>
    <div class="overflow-hidden">
-         
+  <div>
+    <div v-if="loading" class="loading-spinner"></div>
+    <div v-else>
+               
     
     <div  :style="{background :`url(${test})` , filter : 'hue-rotate(-194deg)' , position: 'relative' ,  backgroundSize: 'cover'  }" class="relative h-100 lg:h-screen pb-10 bg-cover  w-full  ">
     
@@ -56,6 +59,7 @@
         
 
     </div>
+    </div>
    </div>
        
 </template>
@@ -72,9 +76,10 @@ import store from '../store/index'
 let carditem = ref([])
 let test = tessst
 let getProduct = ()=>{
-
+let loading = ref(true) 
   store.dispatch('product/get').then((res)=>{
     console.log(res)
+     loading.value = false
     carditem.value = res.reverse()
   })
   
