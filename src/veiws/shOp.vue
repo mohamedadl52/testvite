@@ -176,7 +176,7 @@ onMounted(() => {
   getProduct();
   getCatogress();
   
-};
+
   
 });
 
