@@ -1,6 +1,6 @@
 <template>
    <div class="overflow-hidden">
-  <div>
+  
     <div v-if="loading" class="loading-spinner"></div>
     <div v-else>
                
@@ -60,7 +60,8 @@
 
     </div>
     </div>
-   </div>
+      </div>
+   
        
 </template>
 
