@@ -1,68 +1,71 @@
 <template>
-   <div class="overflow-hidden">
-  
-    <div v-if="loading" class="loading-spinner"></div>
-    <div v-else>
-               
+  <div>
     
-    <div  :style="{background :`url(${test})` , filter : 'hue-rotate(-194deg)' , position: 'relative' ,  backgroundSize: 'cover'  }" class="relative h-100 lg:h-screen pb-10 bg-cover  w-full  ">
-    
-       <img class="w-full lg:hidden" height="200px" src="../assets//images//key7.jpg" alt="">
-       
-       <div  class="flex flex-col container justify-center lg:flex-row lg:justify-center " >
-           <div class=" ml-5 lg:mt-64">
-               <h1 style="color:rgb(19, 255, 255)" class="text-white lg:text-3xl  uppercase text-3xl text-center my-2 text-bold ">PRO STORE</h1>
-               <h1 style="color:rgb(255, 255, 255)" class="text-white   uppercase text-lg text-bold ">اكبر متجر متكامل لكل المنتجات  في السودان </h1>
-              <div class="flex justify-center">
-                <router-link  to="/shop">
-                    <button style="border: 1px solid blueviolet; border-radius: 10px;" class="text-white   uppercase text-xl p-2 mt-4 w-64  text-bold">
-                تسوق الان 
-               </button>
-                </router-link>   
-              </div>  
-            </div>
-            
-        </div>
-          </div>
-        <div v-if="carditem" class="mt-20 ">
-       
-                <h1 v-if="carditem" style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor "> اخر المنتجات >  </h1>
-
-              <div class="flex gap-4 mt-2 flex-wrap flex-row-reverse justify-center">
-          
-                
-                <Card v-for="item in filteredCardItems" :key="item._id" 
-          :productImg="item.img_url[0]" :idProduct="item._id" :title="item.title" :price="item.price" />  
-        
-        </div>
-              
-        
-
-        <p class="text-blue-500 text-xl font-bol
-         ml-20 mt-2">عرض المزيد</p>
-        
-
-    </div>
-        <div v-if="carditem" class="mt-20 ">
-                <h1 style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor "> منتجات الهواتف >  </h1>
-
-              <div v-if="carditem" class="flex gap-4 mt-2 flex-wrap flex-row justify-center">
-            
-             
-                <Card v-for="item in filterephoensItems" :key="item._id" 
-          :productImg="item.img_url[0]" :idProduct="item._id" :title="item.title" :price="item.price" />   </div>
-              
-        
-
-        <p class="text-blue-500 text-xl font-bol
-         ml-20 mt-2 mb-10">عرض المزيد</p>
-        
-
-    </div>
-    </div>
-      </div>
+    <div class="overflow-hidden">
    
-       
+
+                
+     
+     <div  :style="{background :`url(${test})` , filter : 'hue-rotate(-194deg)' , position: 'relative' ,  backgroundSize: 'cover'  }" class="relative h-100 lg:h-screen pb-10 bg-cover  w-full  ">
+     
+        <img class="w-full lg:hidden" height="200px" src="../assets//images//key7.jpg" alt="">
+        
+        <div  class="flex flex-col container justify-center lg:flex-row lg:justify-center " >
+            <div class=" ml-5 lg:mt-64">
+                <h1 style="color:rgb(19, 255, 255)" class="text-white lg:text-3xl  uppercase text-3xl text-center my-2 text-bold ">PRO STORE</h1>
+                <h1 style="color:rgb(255, 255, 255)" class="text-white   uppercase text-lg text-bold ">اكبر متجر متكامل لكل المنتجات  في السودان </h1>
+               <div class="flex justify-center">
+                 <router-link  to="/shop">
+                     <button style="border: 1px solid blueviolet; border-radius: 10px;" class="text-white   uppercase text-xl p-2 mt-4 w-64  text-bold">
+                 تسوق الان 
+                </button>
+                 </router-link>   
+               </div>  
+             </div>
+             
+         </div>
+           </div>
+            
+         <div v-if="carditem && !loading" class="mt-20 ">
+                 <h1 v-if="carditem" style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor "> اخر المنتجات >  </h1>
+ 
+               <div class="flex gap-4 mt-2 flex-wrap flex-row-reverse justify-center">
+           
+                 
+                 <Card v-for="item in filteredCardItems" :key="item._id" 
+           :productImg="item.img_url[0]" :idProduct="item._id" :title="item.title" :price="item.price" />  
+         
+         </div>
+               
+         
+ 
+         <p class="text-blue-500 text-xl font-bol
+          ml-20 mt-2">عرض المزيد</p>
+         
+ 
+     </div>
+         <div v-if="carditem && !loading" class="mt-20 ">
+                 <h1 style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor "> منتجات الهواتف >  </h1>
+ 
+               <div v-if="carditem" class="flex gap-4 mt-2 flex-wrap flex-row justify-center">
+             
+              
+                 <Card v-for="item in filterephoensItems" :key="item._id" 
+           :productImg="item.img_url[0]" :idProduct="item._id" :title="item.title" :price="item.price" />   </div>
+               
+         
+ 
+         <p class="text-blue-500 text-xl font-bol
+          ml-20 mt-2 mb-10">عرض المزيد</p>
+         
+ 
+     </div>
+       </div>
+       <div v-if="loading" class="loading-overlay">
+             <div class="loading-spinner"></div>
+             <p class="loading-text">الرجاء الانتظار</p>
+         </div>
+       </div>
 </template>
 
 <script setup>
@@ -75,9 +78,11 @@ import {ref , onMounted , computed} from 'vue'
 import Card from '../components/carD.vue';
 import store from '../store/index'
 let carditem = ref([])
+let loading = ref(false);
+
 let test = tessst
 let getProduct = ()=>{
-let loading = ref(true) 
+  loading.value = true 
   store.dispatch('product/get').then((res)=>{
     console.log(res)
      loading.value = false
@@ -184,5 +189,38 @@ onMounted(() => {
   animation: bounce-in 0.5s;
 }
 
+
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+.loading-text {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
 </style>

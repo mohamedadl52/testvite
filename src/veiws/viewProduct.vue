@@ -168,6 +168,7 @@ export default {
       productImg : [] , 
       catogress: null,
       selectImg : '',
+      loading :false ,
       news : true ,
             cat : true ,
             modelV : true
@@ -186,6 +187,7 @@ export default {
   },
   methods: {
     getproductId(){
+      this.loading = true
       store.dispatch('product/getProduct' , this.$route.params.id).then((res)=>{
         this.product.title = res.title
         this.product.price = res.price
@@ -193,6 +195,7 @@ export default {
         this.product.qyt = res.qyt
         this.productImg = res.img_url
         this.selectImg = res.img_url[0]
+        this.loading = false
       })
     } ,
     selectimage (img){
