@@ -150,7 +150,7 @@ let carditem = ref([])
 let catogress = ref([])
 let selected = ref(['all'])
 let loading = ref(false);
-
+let visitorCount = ref(0)
 
 let getProduct = ()=>{
 
