@@ -1,6 +1,10 @@
 <template>
 
 <div>
+        
+  <div class="visitor-count-container">
+    <h2 :style="{ color: visitorColor }" class="visitor-count visitor-count-animation">عدد الزوار: {{ visitorCount }}</h2>
+  </div>
         <!-- Your existing template code here -->
         <div>
             
@@ -156,6 +160,24 @@ let getProduct = ()=>{
   })
   
 }
+        
+let fetchVisitorCount = () => {
+  fetch('https://shop-le2d.onrender.com/visitorCount')
+    .then(response => response.json())
+    .then(data => {
+      visitorCount.value = data.count;
+    });
+};
+
+let incrementCount = () => {
+  fetch('https://shop-le2d.onrender.com/incrementCount', { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            this.fetchVisitorCount();
+          }
+        });
+};
 let getCatogress = ()=>{
   loading.value = true;
 
@@ -180,6 +202,8 @@ let filterPro  =  ()=>{
   }
 }
 onMounted(()=>{
+  incrementCount() ;
+  fetchVisitorCount();
  getProduct()
  getCatogress()
 
@@ -190,6 +214,8 @@ let hidecat = ref(false)
 </script>
 
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
 
 .catogress h1 {
  @apply text-seconcolor text-xl font-bold my-4 mb-2 uppercase
@@ -259,5 +285,23 @@ let hidecat = ref(false)
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.visitor-count {
+  
+  font-size: 20px;
+  margin: 0;
+  font-weight: bold;
+  font-family: 'Amiri', sans-serif; /* Applying a nice Arabic font */
+        }
+        
+.visitor-count-animation {
+  animation: colorChange 2s infinite alternate; /* Alternate color change animation */
+}
+/* Loading spinner styles */
+        
+@keyframes colorChange {
+  0% { color: #f00; } /* Start color */
+   100% { color: #00f; } /* End color */
 }
 </style>
