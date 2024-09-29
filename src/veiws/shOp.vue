@@ -288,7 +288,7 @@ let hidecat = ref(false)
 }
 
 .visitor-count {
-  
+  text-align : right;
   font-size: 20px;
   margin: 0;
   font-weight: bold;
