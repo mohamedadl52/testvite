@@ -8,7 +8,7 @@
      
      <div  :style="{background :`url(${test})` , filter : 'hue-rotate(-194deg)' , position: 'relative' ,  backgroundSize: 'cover'  }" class="relative h-100 lg:h-screen pb-10 bg-cover  w-full  ">
      
-        <img class="w-full lg:hidden" height="200px" src="../assets//images//key7.jpg" alt="">
+        <img class="w-full lg:hidden" height="200px" src="../assets//images//key77.jpg" alt="">
         
         <div  class="flex flex-col container justify-center lg:flex-row lg:justify-center " >
             <div class=" ml-5 lg:mt-64">
@@ -119,7 +119,7 @@ onMounted(() => {
     animation: bgfly 2s infinite;
 }
 .background {
-  background-image: url("../src/assets/images/key7.jpg");
+  background-image: url("../src/assets/images/key77.jpg");
  /* filter  :   hue-rotate(-194deg) ; 
   background-size: cover;
   width: 100%;
