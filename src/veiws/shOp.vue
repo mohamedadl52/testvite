@@ -132,7 +132,7 @@
             <div class="loading-spinner"></div>
             <p class="loading-text">الرجاء الانتظار</p>
         </div>
-          <div class="visitor-count-container">
+          <div class="visitor-count-container container">
     <h2 :style="{ color: visitorColor }" class="visitor-count visitor-count-animation">عدد الزوار: {{ visitorCount }}</h2>
   </div>
     </div>
