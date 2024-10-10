@@ -209,6 +209,14 @@ onMounted(()=>{
  getCatogress()
 
 })
+
+        if (visitorCount.value !== undefined) {
+  console.log(visitorCount.value);
+} else {
+  console.error('visitorCount غير معرفة');
+          }
+
+        
 let card = ref(true)
 
 let hidecat = ref(false)
