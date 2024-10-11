@@ -166,6 +166,7 @@ let fetchVisitorCount = () => {
   fetch('https://shop-le2d.onrender.com/visitorCount')
     .then(response => response.json())
     .then(data => {
+      console.log(data)
       visitorCount.value = data.count;
     });
 };
