@@ -187,8 +187,6 @@ let filterPro  =  ()=>{
   }
 }
 onMounted(()=>{
-  incrementCount() ;
-  fetchVisitorCount();
  getProduct()
  getCatogress()
 
