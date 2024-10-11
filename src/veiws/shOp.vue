@@ -132,9 +132,7 @@
             <div class="loading-spinner"></div>
             <p class="loading-text">الرجاء الانتظار</p>
         </div>
-          <div class="visitor-count-container container">
-    <h2 :style="{ color: visitorColor }" class="visitor-count visitor-count-animation">عدد الزوار: {{ visitorCount }}</h2>
-  </div>
+          
     </div>
 
 
@@ -151,7 +149,7 @@ let carditem = ref([])
 let catogress = ref([])
 let selected = ref(['all'])
 let loading = ref(false);
-let visitorCount = ref(0)
+
 
 let getProduct = ()=>{
 
@@ -162,24 +160,9 @@ let getProduct = ()=>{
   
 }
         
-let fetchVisitorCount = () => {
-  fetch('https://shop-le2d.onrender.com/visitorCount')
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      visitorCount.value = data.count;
-    });
-};
 
-let incrementCount = () => {
-  fetch('https://shop-le2d.onrender.com/incrementCount', { method: 'POST' })
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            this.fetchVisitorCount();
-          }
-        });
-};
+
+
 let getCatogress = ()=>{
   loading.value = true;
 
@@ -211,11 +194,7 @@ onMounted(()=>{
 
 })
 
-        if (visitorCount.value !== undefined) {
-  console.log(visitorCount.value);
-} else {
-  console.error('visitorCount غير معرفة');
-          }
+        
 
         
 let card = ref(true)
