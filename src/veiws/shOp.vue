@@ -162,7 +162,6 @@ let getProduct = ()=>{
         
 
 
-let incrementCount = () => {
 
 let getCatogress = ()=>{
   loading.value = true;
